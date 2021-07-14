@@ -23,9 +23,10 @@ const QuestionList=()=>{
 
     return(
         <>
-            {data.map(x=>{
+            {!Array.isArray(data) ? (<div></div>):
+            (data.map(x=>{
                 return(<QuestionListItem data={x}/>)
-            })}
+            }))}
         </>
     )
     

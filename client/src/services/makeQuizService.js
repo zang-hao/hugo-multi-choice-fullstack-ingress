@@ -1,15 +1,15 @@
 import http from "../http-common"
 
 const getAll=()=>{
-    return http.get("/makeQuiz");
+    return http.get("/api/makeQuiz");
 }
 
 const create=(data)=>{
-    return http.post("/makeQuiz",data)
+    return http.post("/api/makeQuiz",data)
 }
 
 const remove=(id)=>{
-    return http.delete(`/makeQuiz/${id}`)
+    return http.delete(`/api/makeQuiz/${id}`)
 }
 
 
