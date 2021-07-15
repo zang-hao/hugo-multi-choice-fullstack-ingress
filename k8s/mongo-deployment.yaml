@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      name: mongo
+      labels: 
+        app: mongo
+    spec:
+      volumes:
+      - name: mongo-storage
+        persistentVolumeClaim:
+          claimName: database-persistent-vloume-claim
+      containers:
+      - name: mongo
+        image: mongo
+        resources:
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+          - name: mongo-storage
+            mountPath: /cache
+            subPath: mongo
+
+        
+        
