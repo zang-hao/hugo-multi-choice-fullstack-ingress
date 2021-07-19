@@ -1,4 +1,5 @@
-sdsdsstages:
+image: docker:stable
+stages:
     - test
     - build
     - deploy
