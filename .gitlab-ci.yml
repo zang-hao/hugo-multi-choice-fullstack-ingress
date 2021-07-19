@@ -39,7 +39,7 @@ gcp_adk:
       - gcloud container clusters get-credentials cluster-1
     script:
       - kubectl apply -f ./k8s
-      - kubectl set image deployment/frontend-deployment nginx=$FRONTEND_IMAGE
-      - kubectl set image deployment/backend-deployment nginx=$BACKEND_IMAGE
+      - kubectl set image deployments/frontend-deployment nginx=$FRONTEND_IMAGE
+      - kubectl set image deployments/backend-deployment backend=$BACKEND_IMAGE
       - echo "deploy complete"
 
