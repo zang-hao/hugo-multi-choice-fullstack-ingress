@@ -1,0 +1,44 @@
+sdsdsstages:
+    - test
+    - build
+    - deploy
+
+job2:
+    stage: test
+    script:
+        - echo "test"
+dockerize:
+    stage: build
+    image: docker:stable
+    services:
+      - docker:dind
+    variables:
+        DOCKER_HOST: tcp://docker:2375/
+        DOCKER_DRIVER: overlay2
+        FRONTEND_IMAGE: asia.gcr.io/hugo-multi-choice/frontend
+        BACKEND_IMAGE: asia.gcr.io/hugo-multi-choice/backend
+    before_script:
+      - echo $GCLOUD_SERVICE_KEY | docker login -u _json_key --password-stdin https://asia.gcr.io
+      - docker info
+    script:
+      - docker build -t $FRONTEND_IMAGE:$CI_COMMIT_SHORT_SHA ./k8s
+      - docker build -t $BACKEND_IMAGE:$CI_COMMIT_SHORT_SHA ./k8s
+      - docker push $FRONTEND_IMAGE:$CI_COMMIT_SHORT_SHA
+      - docker push $BACKEND_IMAGE:$CI_COMMIT_SHORT_SHA
+      - echo "dockerize"
+    
+gcp_adk:
+    stage: deploy
+    image: google/cloud-sdk:latest
+    before_script:
+      - echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
+      - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+      - gcloud config set project hugo-multi-choice
+      - gcloud config set compute/zone asia-east1-a
+      - gcloud container clusters get-credentials cluster-1
+    script:
+      - kubectl apply -f .
+      - kubectl set image deployment/frontend-deployment nginx=$FRONTEND_IMAGE
+      - kubectl set image deployment/backend-deployment nginx=$BACKEND_IMAGE
+      - echo "deploy complete"
+
