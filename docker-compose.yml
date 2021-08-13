@@ -11,6 +11,16 @@ services:
       context: ./client
     ports:
       - '3000:80'
+  frontend:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    ports:
+      - '4000:3000'
+
   api:
     build:
       dockerfile: Dockerfile.dev

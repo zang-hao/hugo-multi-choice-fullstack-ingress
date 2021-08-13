@@ -1,0 +1,32 @@
+{
+  "about": {
+    "aboutme": "Expierenced in Test Software Engineer for 3 years, and ond day I found DevOps is very similar that you need to make process automated possible and more interesting, so I started learning fullstack by myself using Dockerize frontend and backend for deveplopment process, finally using CI/CD pipeline to deploy kubernetes on cloud, and setting the domain I purchased",
+    "details": {
+      "birth": "1993/6/22",
+      "mail": "qwsdcv61215@gmail.com",
+      "phone": "0905470669",
+      "address": "Taiwan, Taoyuan"
+    },
+    "education": "Yuan Ze University/B.S. in Electrical Engineering  2012-2016"
+  },
+  "expeirence": {
+    "job": "Product Test Engineer - INVENTEC",
+    "job_list": [
+      "In charge of new product testing implementation and mantain of notebook and desktop, cooperate with customer and ODMs.",
+      "Troubleshooting productuion process issue by analyz log and batch file.",
+      "Maintain test software and custom OS image on server.",
+      "Automate the entire process to rudece production time and human error.",
+      "Writing test SOP to make sure operator's test operation correctly"
+    ],
+    "year": "2017-2021",
+    "project": "Auto checking data on web to replace manual checking",
+    "project_list": [
+      "Using Selenium to manipulate DOM to approch auto checking on web.",
+      "Using Pandas filter the needed data on excel, replace manual input.",
+      "Auto checking daily and auto sending the result by mail to team member.",
+      "Reduce human error, achieve data correctness to 100%."
+    ],
+    "coding": "Python",
+    "pack": "Selenium, Pandas"
+  }
+}

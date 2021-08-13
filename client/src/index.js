@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Switch, Link, Route, BrowserRouter as Router} from 'react-router-dom';
 import './index.css';
 import MakeQuiz from './pages/makeQuiz';
-import Header from './components/header';
+import Resume from './pages/resume';
 
 ReactDOM.render(
   <React.StrictMode>
-      <Header />
-      <MakeQuiz />
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Resume}/>
+        <Route exact path="/makeQuiz" component={MakeQuiz}/>
+
+      </Switch>
+    </Router>
+
 
   </React.StrictMode>,
   document.getElementById('root')

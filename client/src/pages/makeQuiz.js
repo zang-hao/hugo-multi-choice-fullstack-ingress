@@ -1,6 +1,7 @@
 import EditQuestions from "../components/questions/editQuestion"
 import QuestionList from "../components/questions/questionList"
-import { useState, useEffect,useRef } from "react"
+import Header from "../components/header"
+import { useState, useEffect } from "react"
 import makeQuizService from "../services/makeQuizService"
 import MakeQuizContext from "../context/makeQuizContext"
 
@@ -16,7 +17,7 @@ const MakeQuiz = () => {
         makeQuizService.getAll()
         .then(res=>{
             setQuizData(res.data);
-            console.log("dsdsdsd")})
+            console.log(res.data)})
         .catch(err=>console.log(err))
     },[])
 
@@ -31,7 +32,8 @@ const MakeQuiz = () => {
 
 
     return (
-        <>
+        <>      
+            <Header />
             <div className="container">
                 <div className="row">
                     <MakeQuizContext.Provider value={{quizData,setQuizData}}>
