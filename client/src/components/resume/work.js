@@ -22,7 +22,7 @@ const Work=()=>{
                   <li><strong>CI/CD: </strong>Gitlab-CI</li>
                   <li><strong>Cloud: </strong>GCP, GKE</li>
                 </ul>
-                <a href="http://zangjames.tw/" className="stretched-link">Here</a>
+                <a href="http://zangjames.tw/makeQuiz" className="stretched-link">Here</a>
               </div>
             </div>
           </div>
@@ -39,7 +39,7 @@ const Work=()=>{
                 <p className="card-text">
                   Learning html and css, introduce myself, welcome.
                 </p>
-                <a href="#about" className="stretched-link">Here</a>
+                <a href="#" className="stretched-link">Here</a>
               </div>
             </div>
           </div>
