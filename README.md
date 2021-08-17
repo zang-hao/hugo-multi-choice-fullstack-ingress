@@ -1,4 +1,9 @@
 # hugo-multi-choice-fullstack-ingress
+* Build a simple applicatiom muilti-choice maker and deploy on cloud. 
+* Dockerized frontend(React) and backend(Express, MongoDB) on development.
+* Create Cluster with Terraform on GCP/GKE.
+* Using Gitlab-CI pipeline to delploy kubernetes on GCP/GKE.
+[Demo](http://zangjames.tw/makeQuiz)
 ## K8s Diagram
 ![](https://i.imgur.com/tD1vVTo.png)
 
